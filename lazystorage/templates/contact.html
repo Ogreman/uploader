@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	<h2>Leave A Message</h2>
+	<div class="container">
+		<div class="content">
+		    <form action="" method="post">{% csrf_token %}
+		    	{% for field in form %}
+			    {{ field }}
+			    {% endfor %}
+			    <br>
+		        <input class="send" type="submit" value="Send" />
+		    </form>
+	    </div>
+    </div>
+{% endblock %}

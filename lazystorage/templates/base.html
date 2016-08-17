@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WIZZARDING</title>
+  <meta name="keywords" content=" wizzarding, writing, words, wizzard a_wizzard ">
+  <meta name="description" content="wizzarding: home of the wizzard's words">
+  <meta name="referrer" content="always">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="icon" href="{% static 'wizzarding-logo.png' %}" sizes="200x30" type="image/png">
+  <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+</head>
+<body>
+{% block content %}{% endblock %}
+</body>
+<footer>
+	<div id="home-link" class="symbol-link" onclick="location='{% url 'home' %}'" title="home">&#9968;</div>
+	<div id="contact-link" class="symbol-link" onclick="location='{% url 'contact' %}'" title="message">&#9993;</div>
+	<div id="light-link" class="symbol-link" onclick="window.open('{% url 'light' %}')" title="light">&#128247;</div>
+	<div id="twitter-link" class="symbol-link" onclick="window.open('{% url 'twitter' %}')" title="twitter">&#128038;</div>
+	<div id="contact-link-alt" class="alt-symbol-link" onclick="location='{% url 'contact' %}'" title="message">Leave a message</div>
+</footer>
+</html>
