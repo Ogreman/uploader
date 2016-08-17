@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib import admin
 from .models import File
 from .forms import FileForm
@@ -5,6 +6,9 @@ from .forms import FileForm
 
 @admin.register(File)
 class FileAdmin(admin.ModelAdmin):
+
+    def url(self, obj):
+        return settings.SITE_URL + obj.get_absolute_url()
 
     def length(self, obj):
         return len(obj.upload)
@@ -15,5 +19,5 @@ class FileAdmin(admin.ModelAdmin):
         return HttpResponseRedirect(File.objects.get(pk=obj).get_absolute_url())
 
     form = FileForm
-    list_display = ('__str__', 'length')
+    list_display = ('__str__', 'url', 'length', )
     view_on_site = True
